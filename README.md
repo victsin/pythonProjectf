@@ -11,4 +11,11 @@ step 2: I wrote the query:
         
 step 3: export the result to a csv file as 'finance_liquor_sales.csv' 
 
-step 4: 
+step 4: with Python and Pandas to Aggregate the CSV data so we can get the most popular item sold based on zip code 
+        df1 = df.groupby(['zip_code', 'item_description'])['bottles_sold'].sum()
+        df_popular = df1.groupby('zip_code').idxmax()
+        and percentage of sales per store
+        df2 = df.groupby('store_number')['bottles_sold'].sum()
+        total_sales = df2.sum()
+        df_percentage = (df2 / total_sales) * 100
+        then saved the new aggregated data to two new csv files
