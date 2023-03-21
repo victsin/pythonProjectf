@@ -1,16 +1,8 @@
-# This is a sample Python script.
+import pandas as pd
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+df = pd.read_csv("finance_liquor_sales.csv")
+print(df.columns)
+df1 = df.groupby(['zip_code', 'item_description'])['bottles_sold'].sum()
+print(df1)
+df_popular = df1.groupby(level = 0).nlargest(1)
+print(df_popular)
