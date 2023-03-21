@@ -10,3 +10,5 @@ df2 = df.groupby('store_number')['bottles_sold'].sum()
 total_sales = df2.sum()
 df_percentage = (df2 / total_sales) * 100
 print(df_percentage)
+df_popular.to_csv('popular.csv')
+df_percentage.to_csv('percentage.csv')
