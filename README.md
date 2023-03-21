@@ -1,7 +1,6 @@
 # # python workearly final assignment
 
 step 1: add the database in Workbench 
-
 step 2: I wrote the query:
         use liquorsales;
         show tables;
@@ -19,3 +18,4 @@ step 4: with Python and Pandas to Aggregate the CSV data so we can get the most 
         total_sales = df2.sum()
         df_percentage = (df2 / total_sales) * 100
         then saved the new aggregated data to two new csv files
+Step 5: I selected Tableau with the newly made CSV files to present the data, in order to avoid the iteration loops for         colour selection for visualisation of many different item description or stores.       
