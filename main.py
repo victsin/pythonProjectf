@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 import matplotlib.pyplot as plt
 
 df = pd.read_csv("finance_liquor_sales.csv")
@@ -13,3 +14,10 @@ df_percentage = (df2 / total_sales) * 100
 df_popular.to_csv('popular.csv')
 df_percentage.to_csv('percentage.csv')
 
+popular_item = df_popular.loc[df_popular.groupby('zip_code')['bottles_sold'].idxmax()]
+colors = np.random.rand(len(df_popular))
+plt.scatter(df_popular['zip_code'].tolist(), df_popular['bottles_sold'].tolist(), c=colors)
+plt.xlabel('ZIPCODE')
+plt.ylabel('SOLD BOTTLES')
+plt.title('Most popular item based on sold bottles per Zip Code')
+plt.show()
